@@ -1,0 +1,5 @@
+# DB (SQLite)
+*.db
+
+# JAR (Java Archive)
+*.jar
