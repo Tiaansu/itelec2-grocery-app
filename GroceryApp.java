@@ -38,6 +38,18 @@ class ShoppingCartItem {
     }
 }
 
+class GroceryItem {
+    public String productName;
+    public int price;
+    public int category;
+
+    public GroceryItem(String productName, int price, int category) {
+        this.productName = productName;
+        this.price = price;
+        this.category = category;
+    }
+}
+
 public class GroceryApp {
     public static List<ShoppingCartItem> shoppingCartItems = new ArrayList<>();
 
@@ -98,312 +110,95 @@ public class GroceryApp {
                 + ");";
             statement.executeUpdate(sql);
 
-            String[] fruits = {
-                "Mangoes",
-                "Bananas",
-                "Pineapples",
-                "Papayas",
-                "Oranges",
-                "Apples",
-                "Grapes",
-                "Watermelons",
-                "Cantaloupe"
-            };
+            List<GroceryItem> groceryItems = new ArrayList<>();
 
-            int[] fruitPrices = {
-                35,
-                30,
-                30,
-                25,
-                25,
-                20,
-                35,
-                50,
-                40
-            };
-
-            String[] vegetables = {
-                "Broccoli",
-                "Carrots",
-                "Cauliflower",
-                "Celery",
-                "Onions",
-                "Potatoes",
-                "Tomatoes"
-            };
-
-            int[] vegetablesPrices = {
-                15,
-                20,
-                15,
-                5,
-                10,
-                15,
-                15
-            };
-
-            String[] meats = {
-                "Chicken",
-                "Pork",
-                "Beef",
-                "Hotdogs",
-                "Bacon",
-                "Sausage"
-            };
-
-            int[] meatPrices = {
-                120,
-                150,
-                200,
-                30,
-                60,
-                40
-            };
-
-            String[] seafoods = {
-                "Fish",
-                "Shrimp",
-                "Squid",
-                "Crab",
-                "Tuna",
-                "Sardines"
-            };
-
-            int[] seafoodPrices = {
-                120,
-                150,
-                150,
-                135,
-                200,
-                135
-            };
-
-            String[] dairyAndEggs = {
-                "Milk",
-                "Cheese",
-                "Eggs",
-                "Yogurt",
-                "Butter",
-                "Ice cream"
-            };
-
-            int[] dairyAndEggPrices = {
-                25,
-                40,
-                30,
-                25,
-                25,
-                20
-            };
-
-            String[] pantryItems = {
-                "Rice (sack)",
-                "Bread",
-                "Flour",
-                "Sugar",
-                "Salt",
-                "Pepper",
-                "Garlic",
-                "Onions",
-                "Cooking oil",
-                "Soy sauce",
-                "Vinegar",
-                "Bagoong isda",
-                "Bagoong alamang",
-                "Patis",
-                "Sardines (canned)",
-                "Tuna (canned)",
-                "Corned beef",
-                "Fruits (canned)",
-                "Vegetables (canned)",
-                "Instant noodles",
-                "Pasta",
-                "Cereal",
-                "Chips",
-                "Cookies",
-                "Candy"
-            };
-
-            int[] pantryItemPrices = {
-                1250,
-                50,
-                50,
-                25,
-                25,
-                10,
-                5,
-                5,
-                10,
-                10,
-                10,
-                35,
-                35,
-                15,
-                20,
-                20,
-                20,
-                20,
-                20,
-                15,
-                20,
-                20,
-                15,
-                10,
-                25
-            };
-
-            String[] drinks = {
-                "Water",
-                "Juice",
-                "Soda",
-                "Coffee",
-                "Tea"
-            };
-
-            int[] drinkPrices = {
-                15,
-                15,
-                15,
-                15,
-                15
-            };
-
-            String[] otherItems = {
-                "Shampoo",
-                "Soap",
-                "Toothpaste",
-                "Deodorant",
-                "Pet food",
-                "Baby supplies"
-            };
-
-            int[] otherItemPrices = {
-                10,
-                10,
-                10,
-                10,
-                35,
-                50
-            };
-
-            String[] riceCakes = {
-                "Puto",
-                "Bibingka",
-                "Kutsinta",
-                "Kalamay"
-            };
-
-            int[] riceCakePrices = {
-                15,
-                25,
-                5,
-                15
-            };
-
-            String[] sweets = {
-                "Halo-halo",
-                "Leche flan",
-                "Turon",
-                "Taho"
-            };
-
-            int[] sweetPrices = {
-                15,
-                25,
-                15,
-                10
-            };
+            groceryItems.add(new GroceryItem("Mangoes", 35, 0));
+            groceryItems.add(new GroceryItem("Bananas", 30, 0));
+            groceryItems.add(new GroceryItem("Pineapples", 30, 0));
+            groceryItems.add(new GroceryItem("Papayas", 25, 0));
+            groceryItems.add(new GroceryItem("Oranges", 25, 0));
+            groceryItems.add(new GroceryItem("Apples", 20, 0));
+            groceryItems.add(new GroceryItem("Grapes", 35, 0));
+            groceryItems.add(new GroceryItem("Watermelons", 50, 0));
+            groceryItems.add(new GroceryItem("Cantaloupe", 40, 0));
+            groceryItems.add(new GroceryItem("Broccoli", 15, 1));
+            groceryItems.add(new GroceryItem("Carrots", 20, 1));
+            groceryItems.add(new GroceryItem("Cauliflower", 15, 1));
+            groceryItems.add(new GroceryItem("Celery", 5, 1));
+            groceryItems.add(new GroceryItem("Onions", 10, 1));
+            groceryItems.add(new GroceryItem("Potatoes", 15, 1));
+            groceryItems.add(new GroceryItem("Tomatoes", 15, 1));
+            groceryItems.add(new GroceryItem("Chicken", 120, 2));
+            groceryItems.add(new GroceryItem("Pork", 150, 2));
+            groceryItems.add(new GroceryItem("Beef", 200, 2));
+            groceryItems.add(new GroceryItem("Hotdogs", 30, 2));
+            groceryItems.add(new GroceryItem("Bacon", 60, 2));
+            groceryItems.add(new GroceryItem("Sausage", 40, 2));
+            groceryItems.add(new GroceryItem("Fish", 120, 3));
+            groceryItems.add(new GroceryItem("Shrimp", 150, 3));
+            groceryItems.add(new GroceryItem("Squid", 150, 3));
+            groceryItems.add(new GroceryItem("Crab", 135, 3));
+            groceryItems.add(new GroceryItem("Tuna", 200, 3));
+            groceryItems.add(new GroceryItem("Sardines", 135, 3));
+            groceryItems.add(new GroceryItem("Milk", 25, 4));
+            groceryItems.add(new GroceryItem("Cheese", 40, 4));
+            groceryItems.add(new GroceryItem("Eggs (per tray)", 30, 4));
+            groceryItems.add(new GroceryItem("Yogurt", 25, 4));
+            groceryItems.add(new GroceryItem("Butter", 25, 4));
+            groceryItems.add(new GroceryItem("Ice cream", 20, 4));
+            groceryItems.add(new GroceryItem("Rice (sack)", 1250, 5));
+            groceryItems.add(new GroceryItem("Bread", 50, 5));
+            groceryItems.add(new GroceryItem("Flour", 50, 5));
+            groceryItems.add(new GroceryItem("Sugar", 25, 5));
+            groceryItems.add(new GroceryItem("Salt", 25, 5));
+            groceryItems.add(new GroceryItem("Pepper", 10, 5));
+            groceryItems.add(new GroceryItem("Garlic", 5, 5));
+            groceryItems.add(new GroceryItem("Onions", 5, 5));
+            groceryItems.add(new GroceryItem("Cooking oil", 10, 5));
+            groceryItems.add(new GroceryItem("Soy sauce", 10, 5));
+            groceryItems.add(new GroceryItem("Vinegar", 10, 5));
+            groceryItems.add(new GroceryItem("Bagoong isda", 35, 5));
+            groceryItems.add(new GroceryItem("Bagoong alamang", 35, 5));
+            groceryItems.add(new GroceryItem("Patis", 15, 5));
+            groceryItems.add(new GroceryItem("Sardines (canned)", 20, 5));
+            groceryItems.add(new GroceryItem("Tuna (canned)", 20, 5));
+            groceryItems.add(new GroceryItem("Corned beef", 20, 5));
+            groceryItems.add(new GroceryItem("Fruits (canned)", 20, 5));
+            groceryItems.add(new GroceryItem("Vegetables (canned)", 20, 5));
+            groceryItems.add(new GroceryItem("Instant noodles", 15, 5));
+            groceryItems.add(new GroceryItem("Pasta", 20, 5));
+            groceryItems.add(new GroceryItem("Cereal", 20, 5));
+            groceryItems.add(new GroceryItem("Chips", 15, 5));
+            groceryItems.add(new GroceryItem("Cookies", 10, 5));
+            groceryItems.add(new GroceryItem("Candy (pack)", 25, 5));
+            groceryItems.add(new GroceryItem("Water", 15, 6));
+            groceryItems.add(new GroceryItem("Juice", 15, 6));
+            groceryItems.add(new GroceryItem("Soda", 15, 6));
+            groceryItems.add(new GroceryItem("Coffee", 15, 6));
+            groceryItems.add(new GroceryItem("Tea", 15, 6));
+            groceryItems.add(new GroceryItem("Shampoo", 10, 7));
+            groceryItems.add(new GroceryItem("Soap", 10, 7));
+            groceryItems.add(new GroceryItem("Toothpaste", 10, 7));
+            groceryItems.add(new GroceryItem("Deodorant", 10, 7));
+            groceryItems.add(new GroceryItem("Pet food", 100, 7));
+            groceryItems.add(new GroceryItem("Baby supplies", 50, 7));
+            groceryItems.add(new GroceryItem("Puto", 15, 8));
+            groceryItems.add(new GroceryItem("Bibingka", 25, 8));
+            groceryItems.add(new GroceryItem("Kutsinta", 5, 8));
+            groceryItems.add(new GroceryItem("Kalamay", 15, 8));
+            groceryItems.add(new GroceryItem("Halo-halo", 15, 9));
+            groceryItems.add(new GroceryItem("Leche flan", 25, 9));
+            groceryItems.add(new GroceryItem("Turon", 15, 9));
+            groceryItems.add(new GroceryItem("Taho", 10, 9));
             
             String pstr = "INSERT INTO grocery_items(name, category, stocks, price) VALUES (?,?,?,?)";
 
-            for (int i = 0; i < fruits.length; i ++) {
+            for (int i = 0; i < groceryItems.size(); i ++) {
                 PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, fruits[i]);
-                pstmt.setInt(2, 0);
+                pstmt.setString(1, groceryItems.get(i).productName);
+                pstmt.setInt(2, groceryItems.get(i).category);
                 pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, fruitPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < vegetables.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, vegetables[i]);
-                pstmt.setInt(2, 1);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, vegetablesPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < meats.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, meats[i]);
-                pstmt.setInt(2, 2);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, meatPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < seafoods.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, seafoods[i]);
-                pstmt.setInt(2, 3);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, seafoodPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < dairyAndEggs.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, dairyAndEggs[i]);
-                pstmt.setInt(2, 4);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, dairyAndEggPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < pantryItems.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, pantryItems[i]);
-                pstmt.setInt(2, 5);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, pantryItemPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < drinks.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, drinks[i]);
-                pstmt.setInt(2, 6);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, drinkPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < otherItems.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, otherItems[i]);
-                pstmt.setInt(2, 7);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, otherItemPrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < riceCakes.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, riceCakes[i]);
-                pstmt.setInt(2, 8);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, riceCakePrices[i]);
-                pstmt.executeUpdate();
-            }
-
-            for (int i = 0; i < sweets.length; i ++) {
-                PreparedStatement pstmt = connection.prepareStatement(pstr);
-                pstmt.setString(1, sweets[i]);
-                pstmt.setInt(2, 9);
-                pstmt.setInt(3, new Random().nextInt(200 - 10 + 1) + 10);
-                pstmt.setInt(4, sweetPrices[i]);
-                pstmt.executeUpdate();
+                pstmt.setInt(4, groceryItems.get(i).price);
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -850,6 +645,7 @@ public class GroceryApp {
                 shoppingCartItems.add(new ShoppingCartItem(id, quantity, productName, price));
             } else {
                 this.BrowseGroceryItemOnCategory(categoryId);
+                return;
             }
 
             scanner = new Scanner(System.in);

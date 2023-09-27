@@ -3,3 +3,6 @@
 
 # JAR (Java Archive)
 *.jar
+
+# Compiled Java
+.class
