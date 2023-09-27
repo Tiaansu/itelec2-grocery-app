@@ -60,9 +60,16 @@ public class GroceryApp {
         return connection;
     }
 
-    public void clrscr() {
-        System.out.print("\033[H\033[2J"); 
-        System.out.flush();  
+    public void clrscr() { 
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void beep() {
@@ -891,7 +898,7 @@ public class GroceryApp {
     public void EnterGroceryStore() {
         this.clrscr();
 
-        System.out.println("Welcome to Grocery App version 0.0.1-dev!\n");
+        System.out.println("Welcome to Grocery App version 0.0.1!\n");
 
         System.out.println("Options: ");
         System.out.println("[1] - Load grocery items (startup)");
